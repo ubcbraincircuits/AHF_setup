@@ -1,5 +1,3 @@
-# AHF_setup
-
-To run: make executably via chmod 700
-from command line:
-$sudo ./AHF_script.sh
+USAGE:
+1)make executable $sudo chmod 700 AFH_script.sh
+2) run $ sudo ./AFH_script.sh

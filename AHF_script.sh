@@ -1,3 +1,5 @@
+  GNU nano 2.7.4                                      File: AHF_script.sh                                                 
+
 #!/bin/bash
 # This script should completely set up AutoHeadFixer on a blank Raspberry pi.
 #$ sudo chmod 700 AFH_script.sh
@@ -84,4 +86,9 @@ if [ $PURGE = true ];
                 echo "no purge"
 fi
 
+cd AutoHeadFix
+
+rm -rf  GPIO_Thread TouchDetector pulsedThread RFIDTagReader Adafruit_Python_MPR121 Adafruit_Python_GPIO
+
 echo "Install complete"
+

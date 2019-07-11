@@ -21,6 +21,7 @@ cd AutoHeadFixSetup
 
 echo "downloading AHF repository lever_config branch"
 git clone --single-branch --branch lever_config https://github.com/jamieboyd/AutoHeadFix/
+cd AutoHeadFix
 
 echo "cloning pulsedThread and building makefile"
 git clone https://github.com/jamieboyd/pulsedThread.git

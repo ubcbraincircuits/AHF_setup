@@ -20,7 +20,7 @@ fi
 #sudo apt-get upgrade -y
 
 echo "downloading AHF repository lever_config branch"
-git clone --single-branch --branch lever_config https://github.com/jamieboyd/AutoHeadFix/
+git clone --single-branch --branch lever_config https://github.com/jamieboyd/Au$
 cd AutoHeadFix
 
 echo "cloning pulsedThread and building makefile"
@@ -38,24 +38,27 @@ git clone https://github.com/jamieboyd/GPIO_Thread.git
 cd GPIO_Thread
 mv * ..
 cd ..
-rm GPIO_Thread
+#rm GPIO_Thread
 
 echo "cloning rfid reader"
 git clone https://github.com/jamieboyd/RFIDTagReader.git
 cd RFIDTagReader
 mv * ..
+cd ..
 #rm RFIDTagReader
 
 echo "cloning adafruit python mpr121"
 git clone https://github.com/adafruit/Adafruit_Python_MPR121.git
 cd Adafruit_Python_MPR121
 mv * ..
+cd .. 
 #rm Adafruit_Python_MPR121
 
 echo "cloning adafruit GPIO"
 git clone https://github.com/adafruit/Adafruit_Python_GPIO.git 
 cd Adafruit_Python_GPIO
 mv * ..
+cd ..
 #rm Adafruit_Python_GPIO
 
 
@@ -63,13 +66,14 @@ echo "cloning touch detector"
 git clone https://github.com/jamieboyd/TouchDetector.git
 cd TouchDetector
 mv * ..
+cd ..
 #rm TouchDetector
 
 
 echo "installing pypy and remaining modules (mysql-server, php-mysql, pymysql)"
 sudo apt-get install pypy mysql-server php-mysql -y
 python3 -m pip install PyMySQL
-pip3 install adafruit-circuitpython-mpr121
+#pip3 install adafruit-circuitpython-mpr121
 
 if [ $PURGE = true ];
          then
@@ -81,6 +85,3 @@ if [ $PURGE = true ];
 fi
 
 echo "Install complete"
-
-
-

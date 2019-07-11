@@ -1,5 +1,6 @@
   GNU nano 2.7.4                                      File: AHF_script.sh                                                 
 
+#must add to script: python3 nameoffile install for every cloned repe
 #!/bin/bash
 # This script should completely set up AutoHeadFixer on a blank Raspberry pi.
 #$ sudo chmod 700 AFH_script.sh
@@ -30,6 +31,7 @@ git clone https://github.com/jamieboyd/pulsedThread.git
 cd pulsedThread
 sudo make
 sudo make install
+sudo python3 
 mv * ..
 cd ..
 #rmdir pulsedThread

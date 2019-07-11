@@ -12,8 +12,8 @@ if [ $PURGE = true ];
                 echo "no purge"
 fi
 
-mkdir AutoHeadFixSetup
-cd AutoHeadFixSetup
+#mkdir AutoHeadFixSetup
+#cd AutoHeadFixSetup
 
 #echo "Updating via sudo apt-get update, upgrade"
 #sudo apt-get update -y
@@ -30,7 +30,7 @@ sudo make
 sudo make install
 mv * ..
 cd ..
-rm pulsedThread
+#rmdir pulsedThread
 
 
 echo "Cloning GPIO_Thread"
@@ -43,26 +43,26 @@ echo "cloning rfid reader"
 git clone https://github.com/jamieboyd/RFIDTagReader.git
 cd RFIDTagReader
 mv * ..
-rm RFIDTagReader
+#rm RFIDTagReader
 
 echo "cloning adafruit python mpr121"
 git clone https://github.com/adafruit/Adafruit_Python_MPR121.git
 cd Adafruit_Python_MPR121
 mv * ..
-rm Adafruit_Python_MPR121
+#rm Adafruit_Python_MPR121
 
 echo "cloning adafruit GPIO"
 git clone https://github.com/adafruit/Adafruit_Python_GPIO.git 
 cd Adafruit_Python_GPIO
 mv * ..
-rm Adafruit_Python_GPIO
+#rm Adafruit_Python_GPIO
 
 
 echo "cloning touch detector"
 git clone https://github.com/jamieboyd/TouchDetector.git
 cd TouchDetector
 mv * ..
-rm TouchDetector
+#rm TouchDetector
 
 
 echo "installing pypy and remaining modules (mysql-server, php-mysql, pymysql)"

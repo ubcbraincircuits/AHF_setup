@@ -30,7 +30,7 @@ sudo make
 sudo make install
 mv * ..
 cd ..
-#rmdir pulsedThread
+rmdir pulsedThread
 
 
 echo "Cloning GPIO_Thread"
@@ -38,28 +38,28 @@ git clone https://github.com/jamieboyd/GPIO_Thread.git
 cd GPIO_Thread
 mv * ..
 cd ..
-#rm GPIO_Thread
+rmdir GPIO_Thread
 
 echo "cloning rfid reader"
 git clone https://github.com/jamieboyd/RFIDTagReader.git
 cd RFIDTagReader
 mv * ..
 cd ..
-#rm RFIDTagReader
+rmdir RFIDTagReader
 
 echo "cloning adafruit python mpr121"
 git clone https://github.com/adafruit/Adafruit_Python_MPR121.git
 cd Adafruit_Python_MPR121
 mv * ..
 cd .. 
-#rm Adafruit_Python_MPR121
+rmdir Adafruit_Python_MPR121
 
 echo "cloning adafruit GPIO"
 git clone https://github.com/adafruit/Adafruit_Python_GPIO.git 
 cd Adafruit_Python_GPIO
 mv * ..
 cd ..
-#rm Adafruit_Python_GPIO
+rm Adafruit_Python_GPIO
 
 
 echo "cloning touch detector"
@@ -67,7 +67,7 @@ git clone https://github.com/jamieboyd/TouchDetector.git
 cd TouchDetector
 mv * ..
 cd ..
-#rm TouchDetector
+rm TouchDetector
 
 
 echo "installing pypy and remaining modules (mysql-server, php-mysql, pymysql)"

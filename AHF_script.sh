@@ -37,6 +37,7 @@ echo "Cloning GPIO_Thread"
 git clone https://github.com/jamieboyd/GPIO_Thread.git
 cd GPIO_Thread
 mv * ..
+cd ..
 rm GPIO_Thread
 
 echo "cloning rfid reader"

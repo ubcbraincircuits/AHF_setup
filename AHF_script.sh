@@ -86,7 +86,7 @@ if [ $PURGE = true ];
                 echo "no purge"
 fi
 
-cd AutoHeadFix
+ #cd AutoHeadFix
 
 rm -rf  GPIO_Thread TouchDetector pulsedThread RFIDTagReader Adafruit_Python_MPR121 Adafruit_Python_GPIO
 

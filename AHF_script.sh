@@ -1,6 +1,7 @@
-  GNU nano 2.7.4                                      File: AHF_script.sh                                                 
+  GNU nano 2.7.4                                 File: AHF_script.sh                                            
 
-#must add to script: python3 nameoffile install for every cloned repe
+  GNU nano 2.7.4                                      File: AHF_script.sh                                      $
+
 #!/bin/bash
 # This script should completely set up AutoHeadFixer on a blank Raspberry pi.
 #$ sudo chmod 700 AFH_script.sh
@@ -19,8 +20,8 @@ fi
 #cd AutoHeadFixSetup
 
 #echo "Updating via sudo apt-get update, upgrade"
-#sudo apt-get update -y
-#sudo apt-get upgrade -y
+sudo apt-get update -y
+sudo apt-get upgrade -y
 
 echo "downloading AHF repository lever_config branch"
 git clone --single-branch --branch lever_config https://github.com/jamieboyd/AutoHeadFix
@@ -31,7 +32,9 @@ git clone https://github.com/jamieboyd/pulsedThread.git
 cd pulsedThread
 sudo make
 sudo make install
-sudo python3 
+sudo python3 setup_ptGreeter.py install
+sudo python3 setup_pyPTpyFuncs.py install
+
 mv * ..
 cd ..
 #rmdir pulsedThread
@@ -40,6 +43,11 @@ cd ..
 echo "Cloning GPIO_Thread"
 git clone https://github.com/jamieboyd/GPIO_Thread.git
 cd GPIO_Thread
+sudo python3 HX711_setup.py install
+sudo python3 SR_stepper_setup.py install
+sudo python3 SimpleGPIO_setup.py install
+sudo python3 StepperMotor_setup.py install 
+sudo python3 leverThread_setup.py install 
 mv * ..
 cd ..
 #rmdir GPIO_Thread
@@ -47,6 +55,7 @@ cd ..
 echo "cloning rfid reader"
 git clone https://github.com/jamieboyd/RFIDTagReader.git
 cd RFIDTagReader
+sudo python3 RFIDTagReader_setup.py install
 mv * ..
 cd ..
 #rmdir RFIDTagReader
@@ -69,6 +78,7 @@ cd ..
 echo "cloning touch detector"
 git clone https://github.com/jamieboyd/TouchDetector.git
 cd TouchDetector
+sudo python3 TouchDetector_setup.py install
 mv * ..
 cd ..
 #rm TouchDetector

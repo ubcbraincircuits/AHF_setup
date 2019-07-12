@@ -1,6 +1,4 @@
-  GNU nano 2.7.4                                 File: AHF_script.sh                                            
-
-  GNU nano 2.7.4                                      File: AHF_script.sh                                      $
+GNU nano 2.7.4                                      File: AHF_script.sh                                      
 
 #!/bin/bash
 # This script should completely set up AutoHeadFixer on a blank Raspberry pi.

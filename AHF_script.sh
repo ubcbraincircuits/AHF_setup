@@ -33,7 +33,7 @@ sudo make install
 sudo python3 setup_ptGreeter.py install
 sudo python3 setup_pyPTpyFuncs.py install
 
-mv * ..
+#mv * ..
 cd ..
 #rmdir pulsedThread
 
@@ -41,12 +41,12 @@ cd ..
 echo "Cloning GPIO_Thread"
 git clone https://github.com/jamieboyd/GPIO_Thread.git
 cd GPIO_Thread
-sudo python3 HX711_setup.py install
-sudo python3 SR_stepper_setup.py install
+sudo python3 HX711_setup.py install # is this neccesary??
+
 sudo python3 SimpleGPIO_setup.py install
 sudo python3 StepperMotor_setup.py install 
 sudo python3 leverThread_setup.py install 
-mv * ..
+#mv * ..
 cd ..
 #rmdir GPIO_Thread
 
@@ -54,21 +54,21 @@ echo "cloning rfid reader"
 git clone https://github.com/jamieboyd/RFIDTagReader.git
 cd RFIDTagReader
 sudo python3 RFIDTagReader_setup.py install
-mv * ..
+#mv * ..
 cd ..
 #rmdir RFIDTagReader
 
 echo "cloning adafruit python mpr121"
 git clone https://github.com/adafruit/Adafruit_Python_MPR121.git
 cd Adafruit_Python_MPR121
-mv * ..
+#mv * ..
 cd .. 
 #rmdir Adafruit_Python_MPR121
 
 echo "cloning adafruit GPIO"
 git clone https://github.com/adafruit/Adafruit_Python_GPIO.git 
 cd Adafruit_Python_GPIO
-mv * ..
+#mv * ..
 cd ..
 #rm Adafruit_Python_GPIO
 
@@ -77,7 +77,7 @@ echo "cloning touch detector"
 git clone https://github.com/jamieboyd/TouchDetector.git
 cd TouchDetector
 sudo python3 TouchDetector_setup.py install
-mv * ..
+#mv * ..
 cd ..
 #rm TouchDetector
 
@@ -98,7 +98,22 @@ fi
 
  #cd AutoHeadFix
 
-rm -rf  GPIO_Thread TouchDetector pulsedThread RFIDTagReader Adafruit_Python_MPR121 Adafruit_Python_GPIO
+#rm -rf  GPIO_Thread TouchDetector pulsedThread RFIDTagReader Adafruit_Python_MPR121 Adafruit_Python_GPIO
+echo "setting up database"
+
+sudo apt install mariadb-server
+sudo mysql_secure_installation
+
+#gather inputs for database creation
+# read -p "Please enter a username for database? " user
+#  read -p "Please enter a password for database? " password
+#  read -p "Please enter a name for database? " database
+# echo "a mysql database will now be set up with: username = $user \n password=$password \n database=$database
+#CREATE DATABASE exampledb;
+#CREATE USER 'exampleuser'@'localhost' IDENTIFIED BY 'pimylifeup';
+#GRANT ALL PRIVILEGES ON exampledb.* TO 'exampleuser'@'localhost';
+
+
 
 echo "Install complete"
 

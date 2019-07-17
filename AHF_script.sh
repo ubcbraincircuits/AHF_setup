@@ -111,13 +111,20 @@ sudo mysql_secure_installation #-Y option for more sequre install
 # example: sudo mysql -u root -p password -e "SHOW DATABASES;SHOW DATABASES" // will login to mysql and execute show databases two times
 # sudo mysql -u root -p password -e "CREATE DATABASE databasename;CREATE USER 'exampleuser'@'localhost' IDENTIFIED BY 'password';"
 #gather inputs for database creation
-#read -p "Please enter the name of the user you would like to create? " user
-#read -p "Please enter the password you would like to associate with above user? " password
-#read -p "Please enter a name for database you would like to create and grant user access too? " database
-#read -p Please enter an address for localHost 
-#echo "a mysql database will now be set up with: username = $user \n password=$password \n database=$database
+read -p "please enter the root password you just created" rootp
+read -p "Please enter the name of the new user you would like to create? " user
+read -p "Please enter the password you would like to associate with above user? " password
+read -p "Please enter a name for database you would like to create and grant $user access too? " database
+read -p "Please enter an address for localHost" localhost 
 
-#in one GO: sudo mysql -u root -p $password -e "CREATE DATABASE $database;CREATE USER '$user'@'localhost;GRANT ALL PRIVILEGES ON raw_data.* TO '$user'@'localhost';FLUSH PRIVILEGES"
+cat << END
+***************************************************************
+a mysql user and database will now be set up with the following:
+username: $user
+password: $password
+database: $database
+***************************************************************
+sudo mysql -u root -p$rootp -e "CREATE DATABASE $database;CREATE USER '$user'@'localhost';GRANT ALL PRIVILEGES ON raw_data.* TO '$user'@'localhost';FLUSH PRIVILEGES"
 #CREATE DATABASE exampledb;
 #CREATE USER 'exampleuser'@'localhost' IDENTIFIED BY 'pimylifeup';
 #GRANT ALL PRIVILEGES ON exampledb.* TO 'exampleuser'@'localhost';

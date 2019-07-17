@@ -14,8 +14,8 @@ if [ $PURGE = true ];
                 echo "no purge"
 fi
 
-#mkdir AutoHeadFixSetup
-#cd AutoHeadFixSetup
+mkdir AutoHeadFixSetup
+cd AutoHeadFixSetup
 
 #echo "Updating via sudo apt-get update, upgrade"
 sudo apt-get update -y

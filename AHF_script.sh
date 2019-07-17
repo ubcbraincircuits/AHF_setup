@@ -102,13 +102,22 @@ fi
 echo "setting up database"
 
 sudo apt install mariadb-server
-sudo mysql_secure_installation
 
+
+sudo mysql_secure_installation #-Y option for more sequre install 
+
+
+#to pass commands from command line: sudo mysql -u root -p password -e "Multiple sql commands seperated by ;"
+# example: sudo mysql -u root -p password -e "SHOW DATABASES;SHOW DATABASES" // will login to mysql and execute show databases two times
+# sudo mysql -u root -p password -e "CREATE DATABASE databasename;CREATE USER 'exampleuser'@'localhost' IDENTIFIED BY 'password';"
 #gather inputs for database creation
-# read -p "Please enter a username for database? " user
-#  read -p "Please enter a password for database? " password
-#  read -p "Please enter a name for database? " database
-# echo "a mysql database will now be set up with: username = $user \n password=$password \n database=$database
+#read -p "Please enter the name of the user you would like to create? " user
+#read -p "Please enter the password you would like to associate with above user? " password
+#read -p "Please enter a name for database you would like to create and grant user access too? " database
+#read -p Please enter an address for localHost 
+#echo "a mysql database will now be set up with: username = $user \n password=$password \n database=$database
+
+#in one GO: sudo mysql -u root -p $password -e "CREATE DATABASE $database;CREATE USER '$user'@'localhost;GRANT ALL PRIVILEGES ON raw_data.* TO '$user'@'localhost';FLUSH PRIVILEGES"
 #CREATE DATABASE exampledb;
 #CREATE USER 'exampleuser'@'localhost' IDENTIFIED BY 'pimylifeup';
 #GRANT ALL PRIVILEGES ON exampledb.* TO 'exampleuser'@'localhost';

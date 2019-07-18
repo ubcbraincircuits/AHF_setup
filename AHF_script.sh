@@ -101,7 +101,7 @@ echo "setting up database"
 sudo apt install mariadb-server
 
 
-sudo mysql_secure_installation -y #-Y option for more sequre install 
+sudo mysql_secure_installation  #-Y option for more sequre install 
 
 
 #to pass commands from command line: sudo mysql -u root -p password -e "Multiple sql commands seperated by ;"

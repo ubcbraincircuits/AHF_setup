@@ -5,9 +5,9 @@ GNU nano 2.7.4                                      File: AHF_script.sh
 #$ sudo chmod 700 AFH_script.sh
 #$ ./AFH_script.sh
 
-PURGE=false  #DEFAULT:false for developing - setting purge =true deletes the cr$
+read -p "Select 0 for dependancy install or any key for a full installation" userinput  #DEFAULT:false for developing - setting purge =true deletes the cr$
 
-if [ $PURGE = true ];
+if [ $userinput -eq 0 ];
         then
                 echo "TRUE"
         else
@@ -23,7 +23,7 @@ sudo apt-get upgrade -y
 
 echo "downloading AHF repository lever_config branch"
 git clone --single-branch --branch lever_config https://github.com/jamieboyd/AutoHeadFix
-cd AutoHeadFix
+#cd AutoHeadFix
 
 echo "cloning pulsedThread and building makefile"
 git clone https://github.com/jamieboyd/pulsedThread.git
@@ -87,7 +87,7 @@ sudo apt-get install pypy mysql-server php-mysql -y
 python3 -m pip install PyMySQL
 #pip3 install adafruit-circuitpython-mpr121
 
-if [ $PURGE = true ];
+if [ $userinput -eq 0 ];
          then
                 echo "Purge requested"
                 cd ..
@@ -96,9 +96,6 @@ if [ $PURGE = true ];
                 echo "no purge"
 fi
 
- #cd AutoHeadFix
-
-#rm -rf  GPIO_Thread TouchDetector pulsedThread RFIDTagReader Adafruit_Python_MPR121 Adafruit_Python_GPIO
 echo "setting up database"
 
 sudo apt install mariadb-server
@@ -106,11 +103,13 @@ sudo apt install mariadb-server
 
 sudo mysql_secure_installation #-Y option for more sequre install 
 
+:'
+to pass commands from command line: sudo mysql -u root -p password -e "Multiple sql commands seperated by ;"
+example: sudo mysql -u root -p password -e "SHOW DATABASES;SHOW DATABASES" // will login to mysql and execute show databases two times
+ sudo mysql -u root -p password -e "CREATE DATABASE databasename;CREATE USER 'exampleuser'@'localhost' IDENTIFIED BY 'password';"
+gather inputs for database creation
+'
 
-#to pass commands from command line: sudo mysql -u root -p password -e "Multiple sql commands seperated by ;"
-# example: sudo mysql -u root -p password -e "SHOW DATABASES;SHOW DATABASES" // will login to mysql and execute show databases two times
-# sudo mysql -u root -p password -e "CREATE DATABASE databasename;CREATE USER 'exampleuser'@'localhost' IDENTIFIED BY 'password';"
-#gather inputs for database creation
 read -p "please enter the root password you just created" rootp
 read -p "Please enter the name of the new user you would like to create? " user
 read -p "Please enter the password you would like to associate with above user? " password

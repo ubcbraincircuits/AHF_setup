@@ -110,9 +110,9 @@ sudo mysql_secure_installation  #-Y option for more sequre install
 #gather inputs for database creation
 
 
-read -p "please enter the root password you just created" rootp
-read -p "Please enter the name of the new user you would like to create? " user
-read -p "Please enter the password you would like to associate with above user? " password
+read -p "please enter the root password you just created: " rootp
+read -p "Please enter the name of the new user you would like to create:  " user
+read -p "Please enter the password you would like to associate with above user " password
 read -p "Please enter a name for database you would like to create and grant $user access too? " database
 # read -p "Please enter an address for localHost" localhost 
 

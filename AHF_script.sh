@@ -103,11 +103,11 @@ sudo apt install mariadb-server
 
 sudo mysql_secure_installation #-Y option for more sequre install 
 
-:'
-to pass commands from command line: sudo mysql -u root -p password -e "Multiple sql commands seperated by ;"
-example: sudo mysql -u root -p password -e "SHOW DATABASES;SHOW DATABASES" // will login to mysql and execute show databases two times
- sudo mysql -u root -p password -e "CREATE DATABASE databasename;CREATE USER 'exampleuser'@'localhost' IDENTIFIED BY 'password';"
-gather inputs for database creation
+
+#to pass commands from command line: sudo mysql -u root -p password -e "Multiple sql commands seperated by ;"
+#example: sudo mysql -u root -p password -e "SHOW DATABASES;SHOW DATABASES" // will login to mysql and execute show databases two times
+#sudo mysql -u root -p password -e "CREATE DATABASE databasename;CREATE USER 'exampleuser'@'localhost' IDENTIFIED BY 'password';"
+#gather inputs for database creation
 '
 
 read -p "please enter the root password you just created" rootp

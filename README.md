@@ -25,6 +25,9 @@ You should see a database with the name you just entered. If so congratulations!
 9. If you experience any problems with the install it is recommended to run the script and enter '0' at the starting prompt.
 This will clear any cloned repos/folders created durring the installation (after the fact) and is useful if a timeout error or remote host disconnect results in a partial install.
 
+10. After installation you should see a few folders. The main function is located within the folder 
+"AutoHeadFix"
+
 
 
 

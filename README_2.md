@@ -1,7 +1,7 @@
 *****This Guide Assumes You Have Already Succesfully Installed AutoHeadFix and its Dependancies*****
 1) To start AutoHeadFix use the following command **sudo python3 __main__2.py**
 
-2) At the prompt, select a AHF task configuration file or create your own  To create your own configration file simply enter 0 and follow the prompts on screen to set various parameters.
+2) At the prompt, select a AHF task configuration file or create your own. To create your own configration file simply enter 0 and follow the prompts on screen to set various parameters.
 
 3) The Task settings screen displays your current settings (options 1 thru 38) (retrived from the corresponding jsn)
     At the screeen you my select any number (1 to 38) in order to change any parameters associated with that object (pins, ect)
@@ -14,6 +14,7 @@
 
 6.5) When renaming the file you **must** remove the word 'fillable' EXAMPLE: navigate to the AutoHeadFix folder
     Type the following command into terminal: **sudo cp AHF_mice_fillable_subjects.jsn AHF_mice_subjects.jsn**
+    
 
 7) After copying the file correctly, proceed back to autoheadfix window and press enter
 

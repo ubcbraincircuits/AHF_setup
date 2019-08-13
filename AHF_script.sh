@@ -87,7 +87,6 @@ cd ..
 
 echo "installing pypy and remaining modules (mysql-server, php-mysql, pymysql)"
 sudo apt-get install pypy mysql-server php-mysql -y
-sudo apt install php-myadmin  #select apache 2 by pressing space and then enter, select yes at the next prompt then set password
 python3 -m pip install PyMySQL
 #pip3 install adafruit-circuitpython-mpr121
 
@@ -133,7 +132,7 @@ sudo mysql -u root -p$rootp -e "CREATE DATABASE $database;CREATE USER '$user'@'l
 #CREATE DATABASE exampledb;
 #CREATE USER 'exampleuser'@'localhost' IDENTIFIED BY 'pimylifeup';
 #GRANT ALL PRIVILEGES ON exampledb.* TO 'exampleuser'@'localhost';
-
+sudo apt install php-myadmin  #select apache 2 by pressing space and then enter, select yes at the next prompt then set password
 
 
 echo "Install complete"

@@ -46,6 +46,8 @@ python3 HX711_setup.py install # is this neccesary??
 python3 SimpleGPIO_setup.py install
 python3 StepperMotor_setup.py install 
 python3 leverThread_setup.py install 
+python3 PWM_thread_setup.py install
+
 #mv * ..
 cd ..
 #rmdir GPIO_Thread
@@ -65,6 +67,13 @@ sudo python3 setup.py install
 #mv * ..
 cd .. 
 #rmdir Adafruit_Python_MPR121
+
+echo "Cloning pca9685"
+git clone https://github.com/adafruit/Adafruit_Python_PCA9685.git
+cd Adafruit_Python_PCA9685
+sudo python3 setup.py install
+cd ..
+
 
 echo "cloning adafruit GPIO"
 git clone https://github.com/adafruit/Adafruit_Python_GPIO.git 
@@ -105,6 +114,11 @@ sudo apt install mariadb-server
 
 
 sudo mysql_secure_installation  #-Y option for more sequre install 
+
+sudo apt-get install libatlas-base-dev 
+sudo pip3 install imreg_dft
+sudo pip3 install matplotlib
+sudo pip3 install pynput
 
 
 #to pass commands from command line: sudo mysql -u root -p password -e "Multiple sql commands seperated by ;"

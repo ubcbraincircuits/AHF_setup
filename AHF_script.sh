@@ -116,10 +116,13 @@ sudo apt install mariadb-server
 sudo mysql_secure_installation  #-Y option for more sequre install 
 
 sudo apt-get install libatlas-base-dev 
+sudo apt-get install python3-scipy
 sudo pip3 install imreg_dft
 sudo pip3 install matplotlib
 sudo pip3 install pynput
-
+sudo pip3 install h5py
+sudo pip3 install h5py #Not a typo. Sometimes needs to be run twice
+sudo apt-get install libhdf5-dev
 
 #to pass commands from command line: sudo mysql -u root -p password -e "Multiple sql commands seperated by ;"
 #example: sudo mysql -u root -p password -e "SHOW DATABASES;SHOW DATABASES" // will login to mysql and execute show databases two times
@@ -146,7 +149,7 @@ sudo mysql -u root -p$rootp -e "CREATE DATABASE $database;CREATE USER '$user'@'l
 #CREATE DATABASE exampledb;
 #CREATE USER 'exampleuser'@'localhost' IDENTIFIED BY 'pimylifeup';
 #GRANT ALL PRIVILEGES ON exampledb.* TO 'exampleuser'@'localhost';
-sudo apt install php-myadmin  #select apache 2 by pressing space and then enter, select yes at the next prompt then set password
+sudo apt install phpmyadmin  #select apache 2 by pressing space and then enter, select yes at the next prompt then set password
 
 
 echo "Install complete"

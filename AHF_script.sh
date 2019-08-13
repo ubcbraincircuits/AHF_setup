@@ -106,6 +106,11 @@ if [ $userinput -eq 0 ];
                 sudo rm -rf AutoHeadFixSetup
         else 
                 echo "no purge"
+                cd AutoHeadFix/
+                _path=$PWD
+                cd ~
+                sudo touch .bash_aliases
+                sudo echo "alias ahf='cd $_path'" | sudo tee .bash_aliases
 fi
 
 echo "setting up database"
@@ -150,10 +155,5 @@ sudo mysql -u root -p$rootp -e "CREATE DATABASE $database;CREATE USER '$user'@'l
 #CREATE USER 'exampleuser'@'localhost' IDENTIFIED BY 'pimylifeup';
 #GRANT ALL PRIVILEGES ON exampledb.* TO 'exampleuser'@'localhost';
 sudo apt install phpmyadmin  #select apache 2 by pressing space and then enter, select yes at the next prompt then set password
-cd AutoHeadFix/
-_path=$PWD
-cd ~
-sudo touch .bash_aliases
-sudo echo "alias ahf='cd $_path'" | sudo tee .bash_aliases
 echo "Install complete"
 

@@ -61,6 +61,7 @@ cd ..
 echo "cloning adafruit python mpr121"
 git clone https://github.com/adafruit/Adafruit_Python_MPR121.git
 cd Adafruit_Python_MPR121
+sudo python3 setup.py install
 #mv * ..
 cd .. 
 #rmdir Adafruit_Python_MPR121
@@ -69,7 +70,9 @@ echo "cloning adafruit GPIO"
 git clone https://github.com/adafruit/Adafruit_Python_GPIO.git 
 cd Adafruit_Python_GPIO
 #mv * ..
+sudo python3 setup.py install
 cd ..
+
 #rm Adafruit_Python_GPIO
 
 
@@ -84,6 +87,7 @@ cd ..
 
 echo "installing pypy and remaining modules (mysql-server, php-mysql, pymysql)"
 sudo apt-get install pypy mysql-server php-mysql -y
+sudo apt install php-myadmin  #select apache 2 by pressing space and then enter, select yes at the next prompt then set password
 python3 -m pip install PyMySQL
 #pip3 install adafruit-circuitpython-mpr121
 

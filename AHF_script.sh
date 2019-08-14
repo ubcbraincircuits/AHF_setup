@@ -86,7 +86,7 @@ cd ..
 
 
 echo "cloning touch detector"
-git clone https://github.com/jamieboyd/TouchDetector.git
+git clone https://github.com/Judge24601/TouchDetector.git
 cd TouchDetector
 python3 TouchDetector_setup.py install
 #mv * ..

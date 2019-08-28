@@ -2,7 +2,7 @@
 ***************************INSTALLATION GUIDE / HOW TO INSTALL AutoHeadFix*******************************
 *********************************************************************************************************
 NOTE:I2C MUST BE ENABLED BY THE USER
-to enable click the raspberry in top left corner --> preferences --> raspberry pi configuration --> interfaces -->i2c / enable
+to enable click the raspberry in top left corner > preferences > raspberry pi configuration > interfaces >i2c > enable
 or
 sudo raspi-config 
 

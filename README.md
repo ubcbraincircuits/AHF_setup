@@ -1,10 +1,9 @@
 *********************************************************************************************************
 ***************************INSTALLATION GUIDE / HOW TO INSTALL AutoHeadFix*******************************
 *********************************************************************************************************
-NOTE:I2C MUST BE ENABLED BY THE USER
+NOTE:I2C and Serial PORT MUST BE ENABLED BY THE USER
 to enable click the raspberry in top left corner > preferences > raspberry pi configuration > interfaces >i2c > enable
-or
-sudo raspi-config 
+and serial port > enable
 
 1. clone this repository by typing the following into terminal: git clone https://github.com/ZenenHornstein/AHF_setup
 

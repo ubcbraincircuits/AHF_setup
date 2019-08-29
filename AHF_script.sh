@@ -17,9 +17,11 @@ fi
 mkdir AutoHeadFixSetup
 cd AutoHeadFixSetup
 
-#echo "Updating via sudo apt-get update, upgrade"
-sudo apt-get update -y
-sudo apt-get upgrade -y
+
+#updates pi, bypassing y/n prompts, clears out unused packages
+sudo apt-get update && sudo apt-get upgrade -y && apt-get autoremove && apt-get autoclean
+
+
 
 echo "downloading AHF repository lever_config branch"
 git clone --single-branch --branch lever_config https://github.com/jamieboyd/AutoHeadFix

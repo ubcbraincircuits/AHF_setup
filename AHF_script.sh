@@ -98,7 +98,7 @@ cd ..
 
 echo "installing pypy and remaining modules (mysql-server, php-mysql, pymysql)"
 sudo apt-get install pypy mysql-server php-mysql -y
-python3 -m pip install PyMySQL
+python3 -m pip install PyMySQL -y
 #pip3 install adafruit-circuitpython-mpr121
 
 if [ $userinput -eq 0 ];
@@ -117,19 +117,19 @@ fi
 
 echo "setting up database"
 
-sudo apt install mariadb-server
+sudo apt install mariadb-server -y
 
 
 sudo mysql_secure_installation  #-Y option for more sequre install 
 
-sudo apt-get install libatlas-base-dev 
-sudo apt-get install python3-scipy
+sudo apt-get install libatlas-base-dev -y 
+sudo apt-get install python3-scipy -y
 sudo pip3 install imreg_dft
 sudo pip3 install matplotlib
 sudo pip3 install pynput
-sudo pip3 install h5py
-sudo pip3 install h5py #Not a typo. Sometimes needs to be run twice
-sudo apt-get install libhdf5-dev
+sudo pip3 install h5py -y
+sudo pip3 install h5py -y #Not a typo. Sometimes needs to be run twice
+sudo apt-get install libhdf5-dev -y
 
 #to pass commands from command line: sudo mysql -u root -p password -e "Multiple sql commands seperated by ;"
 #example: sudo mysql -u root -p password -e "SHOW DATABASES;SHOW DATABASES" // will login to mysql and execute show databases two times
@@ -156,6 +156,6 @@ sudo mysql -u root -p$rootp -e "CREATE DATABASE $database;CREATE USER '$user'@'l
 #CREATE DATABASE exampledb;
 #CREATE USER 'exampleuser'@'localhost' IDENTIFIED BY 'pimylifeup';
 #GRANT ALL PRIVILEGES ON exampledb.* TO 'exampleuser'@'localhost';
-sudo apt install phpmyadmin  #select apache 2 by pressing space and then enter, select yes at the next prompt then set password
+sudo apt install phpmyadmin -y  #select apache 2 by pressing space and then enter, select yes at the next prompt then set password
 echo "Install complete"
 

@@ -98,7 +98,7 @@ cd ..
 
 echo "installing pypy and remaining modules (mysql-server, php-mysql, pymysql)"
 sudo apt-get install pypy mysql-server php-mysql -y
-python3 -m pip install PyMySQL -y
+python3 -m pip install PyMySQL 
 #pip3 install adafruit-circuitpython-mpr121
 
 if [ $userinput -eq 0 ];
@@ -127,8 +127,8 @@ sudo apt-get install python3-scipy -y
 sudo pip3 install imreg_dft
 sudo pip3 install matplotlib
 sudo pip3 install pynput
-sudo pip3 install h5py -y
-sudo pip3 install h5py -y #Not a typo. Sometimes needs to be run twice
+sudo pip3 install h5py 
+sudo pip3 install h5py #Not a typo. Sometimes needs to be run twice
 sudo apt-get install libhdf5-dev -y
 
 #to pass commands from command line: sudo mysql -u root -p password -e "Multiple sql commands seperated by ;"

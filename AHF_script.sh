@@ -120,7 +120,7 @@ echo "setting up database"
 sudo apt install mariadb-server -y
 
 
-sudo mysql_secure_installation -Y  #-Y option for more sequre install 
+sudo mysql_secure_installation  #-Y option for more sequre install 
 
 sudo apt-get install libatlas-base-dev -y 
 sudo apt-get install python3-scipy -y

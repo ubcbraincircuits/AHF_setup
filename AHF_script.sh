@@ -158,4 +158,26 @@ sudo mysql -u root -p$rootp -e "CREATE DATABASE $database;CREATE USER '$user'@'l
 #GRANT ALL PRIVILEGES ON exampledb.* TO 'exampleuser'@'localhost';
 sudo apt install phpmyadmin -y  #select apache 2 by pressing space and then enter, select yes at the next prompt then set password
 echo "Install complete"
+#***********************************
+#sudo find / -type f -name "auto_start_script.sh" | grep "auto_start_script.sh"
+#mypath=$(sudo find / -type f -name "auto_start_script.sh" | grep "auto_start_script.sh")
+
+#if [ $? -eq 0 ];
+ #       then
+  #              echo "0 * * * * /bin/bash $mypath" > croninfo.txt
+   #             sudo crontab -l -u root | cat - croninfo.txt | sudo crontab -u root -
+   #     else
+    #            echo "unable to generate cronjob"
+#fi
+
+
+#echo "0 * * * * /bin/bash /home/pi/Desktop/AHF_setup/AutoHeadFixSetup/AutoHeadFix/auto_start_script.sh" > croninfo.txt
+#sudo crontab -l -u root | cat - croninfo.txt | sudo crontab -u root -
+
+
+# For teesting cron gen
+# if (sudo find / -type f -name "__main__2.py" | grep "__main__2.py") returns exit code (0) 
+# Then path to __main__2.py is located in: $(sudo find / -type f -name "__main__2.py" | grep "__main__2.py")
+# Then create text file that contains information for cronjob that points to file location ^
+# create cronjob based on text file ^
 

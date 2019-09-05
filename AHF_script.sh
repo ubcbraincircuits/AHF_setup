@@ -158,6 +158,10 @@ sudo mysql -u root -p$rootp -e "CREATE DATABASE $database;CREATE USER '$user'@'l
 #GRANT ALL PRIVILEGES ON exampledb.* TO 'exampleuser'@'localhost';
 sudo apt install phpmyadmin -y  #select apache 2 by pressing space and then enter, select yes at the next prompt then set password
 echo "Install complete"
+
+pwd
+cd AutoHeadFix
+./createCRON.sh
 #***********************************
 #sudo find / -type f -name "auto_start_script.sh" | grep "auto_start_script.sh"
 #mypath=$(sudo find / -type f -name "auto_start_script.sh" | grep "auto_start_script.sh")

@@ -161,7 +161,12 @@ echo "Install complete"
 
 pwd
 cd AutoHeadFix
+
+sudo chmod +x createCRON.sh
 ./createCRON.sh
+
+sudo chmod +x load_Config.sh
+
 #***********************************
 #sudo find / -type f -name "auto_start_script.sh" | grep "auto_start_script.sh"
 #mypath=$(sudo find / -type f -name "auto_start_script.sh" | grep "auto_start_script.sh")

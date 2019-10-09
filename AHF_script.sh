@@ -25,7 +25,7 @@ sudo apt-get update && sudo apt-get upgrade -y && apt-get autoremove && apt-get 
 
 echo "downloading AHF repository lever_config branch"
 git clone --single-branch --branch lever_config https://github.com/jamieboyd/AutoHeadFix
-#cd AutoHeadFix
+
 
 echo "cloning pulsedThread and building makefile"
 git clone https://github.com/jamieboyd/pulsedThread.git
@@ -34,10 +34,8 @@ sudo make
 sudo make install
 python3 setup_ptGreeter.py install
 python3 setup_pyPTpyFuncs.py install
-
-#mv * ..
 cd ..
-#rmdir pulsedThread
+
 
 
 echo "Cloning GPIO_Thread"
@@ -49,26 +47,22 @@ python3 SimpleGPIO_setup.py install
 python3 StepperMotor_setup.py install 
 python3 leverThread_setup.py install 
 python3 PWM_thread_setup.py install
-
-#mv * ..
 cd ..
-#rmdir GPIO_Thread
+
 
 echo "cloning rfid reader"
 git clone https://github.com/jamieboyd/RFIDTagReader.git
 cd RFIDTagReader
 python3 RFIDTagReader_setup.py install
-#mv * ..
 cd ..
-#rmdir RFIDTagReader
+
 
 echo "cloning adafruit python mpr121"
 git clone https://github.com/adafruit/Adafruit_Python_MPR121.git
 cd Adafruit_Python_MPR121
 sudo python3 setup.py install
-#mv * ..
 cd .. 
-#rmdir Adafruit_Python_MPR121
+
 
 echo "Cloning pca9685"
 git clone https://github.com/adafruit/Adafruit_Python_PCA9685.git
@@ -80,26 +74,22 @@ cd ..
 echo "cloning adafruit GPIO"
 git clone https://github.com/adafruit/Adafruit_Python_GPIO.git 
 cd Adafruit_Python_GPIO
-#mv * ..
 sudo python3 setup.py install
 cd ..
-
-#rm Adafruit_Python_GPIO
 
 
 echo "cloning touch detector"
 git clone https://github.com/Judge24601/TouchDetector.git
 cd TouchDetector
 python3 TouchDetector_setup.py install
-#mv * ..
 cd ..
-#rm TouchDetector
+
 
 
 echo "installing pypy and remaining modules (mysql-server, php-mysql, pymysql)"
 sudo apt-get install pypy mysql-server php-mysql -y
 python3 -m pip install PyMySQL 
-#pip3 install adafruit-circuitpython-mpr121
+
 
 if [ $userinput -eq 0 ];
          then
@@ -141,7 +131,7 @@ read -p "please enter the root password you just created: " rootp
 read -p "Please enter the name of the new user you would like to create:  " user
 read -p "Please enter the password you would like to associate with above user " password
 read -p "Please enter a name for database you would like to create and grant $user access too? " database
-# read -p "Please enter an address for localHost" localhost 
+ 
 
 cat << END
 ***************************************************************
@@ -161,6 +151,9 @@ echo "Install complete"
 
 pwd
 cd AutoHeadFix
+
+echo path=$(pwd) $'\ndb=\ncageid=\nuser=\npassword=\n' > config.txt
+
 
 sudo chmod +x createCRON.sh
 ./createCRON.sh

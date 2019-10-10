@@ -145,11 +145,25 @@ database: $database
 ***************************************************************
 END
 
+
 sudo mysql -u root -p$rootp -e "CREATE DATABASE $database;CREATE USER '$user'@'localhost' IDENTIFIED BY '$password';GRANT ALL PRIVILEGES ON raw_data.* TO '$user'@'localhost';FLUSH PRIVILEGES"
 #CREATE DATABASE exampledb;
 #CREATE USER 'exampleuser'@'localhost' IDENTIFIED BY 'pimylifeup';
 #GRANT ALL PRIVILEGES ON exampledb.* TO 'exampleuser'@'localhost';
 sudo apt install phpmyadmin -y  #select apache 2 by pressing space and then enter, select yes at the next prompt then set password
+
+
+#todo Automate php my admin installation
+
+#DEBIAN_FRONTEND=noninteractive apt-get -y install x11-common phpmyadmin
+#debconf-set-selections <<< "phpmyadmin phpmyadmin/reconfigure-webserver multiselect apache2"  
+#debconf-set-selections <<< "phpmyadmin phpmyadmin/dbconfig-install boolean true"  
+#debconf-set-selections <<< "phpmyadmin phpmyadmin/mysql/admin-user string root"  
+#debconf-set-selections <<< "phpmyadmin phpmyadmin/mysql/admin-pass password $rootp"  
+#debconf-set-selections <<< "phpmyadmin phpmyadmin/mysql/app-pass password password"  
+#debconf-set-selections <<< "phpmyadmin phpmyadmin/app-password-confirm password root"
+
+
 echo "Install complete"
 
 pwd

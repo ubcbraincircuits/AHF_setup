@@ -105,7 +105,7 @@ if [ $userinput -eq 0 ];
                 echo $PWD
                 sudo touch .bash_aliases
                 sudo echo "alias ahf='cd $_path'" | sudo tee .bash_aliases
-                sudo echo "alias start='ahf && sudo python3 __main__2.py'" | sudo tee -a .bash_aliases
+                sudo echo "alias ahfstart='ahf && sudo python3 __main__2.py'" | sudo tee -a .bash_aliases
 fi
 
 echo "setting up database"
@@ -181,6 +181,8 @@ sudo chmod +x createCRON.sh
 ./createCRON.sh
 
 sudo chmod +x load_Config.sh
+echo "Include /etc/phpmyadmin/apache.conf" | sudo tee -a /etc/apache2/apache2.conf
+sudo service apache2 restart
 
 #***********************************
 #sudo find / -type f -name "auto_start_script.sh" | grep "auto_start_script.sh"

@@ -100,9 +100,12 @@ if [ $userinput -eq 0 ];
                 echo "no purge"
                 cd AutoHeadFix/
                 _path=$PWD
-                cd ~
+                echo $_path
+                cd /home/pi
+                echo $PWD
                 sudo touch .bash_aliases
                 sudo echo "alias ahf='cd $_path'" | sudo tee .bash_aliases
+                sudo echo "alias start='ahf && sudo python3 __main__2.py'" | sudo tee -a .bash_aliases
 fi
 
 echo "setting up database"
@@ -131,7 +134,7 @@ read -p "please enter the root password you just created: " rootp
 read -p "Please enter the name of the new user you would like to create:  " user
 read -p "Please enter the password you would like to associate with above user " password
 read -p "Please enter a name for database you would like to create and grant $user access too? " database
- 
+read -p "Please enter the cageID for the current system - this must be unique: " cageID
 
 cat << END
 ***************************************************************
@@ -150,9 +153,14 @@ sudo apt install phpmyadmin -y  #select apache 2 by pressing space and then ente
 echo "Install complete"
 
 pwd
-cd AutoHeadFix
+cd $_path
 
-sudo echo path=$(pwd) $'\ndb=\ncageid=\nuser=\npassword=\n' > /home/pi/config.txt
+sudo echo "path=$_path" | sudo tee /home/pi/config.txt
+sudo echo "db=$database" | sudo tee -a /home/pi/config.txt
+sudo echo "cageID=$cageID" | sudo tee -a /home/pi/config.txt
+sudo echo "user=$user" | sudo tee -a /home/pi/config.txt
+sudo echo "pwd=$password" | sudo tee -a /home/pi/config.txt
+
 
 
 sudo chmod +x createCRON.sh

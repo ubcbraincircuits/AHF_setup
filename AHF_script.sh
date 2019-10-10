@@ -152,7 +152,7 @@ echo "Install complete"
 pwd
 cd AutoHeadFix
 
-sudo echo path=$(pwd) $'\ndb=\ncageid=\nuser=\npassword=\n' > /config.txt
+sudo echo path=$(pwd) $'\ndb=\ncageid=\nuser=\npassword=\n' > /home/pi/config.txt
 
 
 sudo chmod +x createCRON.sh

@@ -67,14 +67,14 @@ cd ..
 echo "Cloning pca9685"
 git clone https://github.com/adafruit/Adafruit_Python_PCA9685.git
 cd Adafruit_Python_PCA9685
-sudo python3 setup.py install
+python3 setup.py install
 cd ..
 
 
 echo "cloning adafruit GPIO"
 git clone https://github.com/adafruit/Adafruit_Python_GPIO.git 
 cd Adafruit_Python_GPIO
-sudo python3 setup.py install
+python3 setup.py install
 cd ..
 
 

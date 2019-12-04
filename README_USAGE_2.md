@@ -1,7 +1,9 @@
 *****This Guide Assumes You Have Already Succesfully Installed AutoHeadFix and its Dependancies*****
-1) Note: a couple useful aliases were automatically created during hte install: 
-    raspberrypi$ ahfstart: start the program
-    raspberrypi$ ahfstart --temp: start the program using whatever configurations were most recently stored in database
+1) Note: a couple useful aliases were automatically created during hte install:
+
+raspberrypi$ ahfstart: start the program
+
+raspberrypi$ ahfstart --temp: start the program using whatever configurations were most recently stored in database
 
  start AutoHeadFix use the following command **sudo python3 __main__2.py**
 

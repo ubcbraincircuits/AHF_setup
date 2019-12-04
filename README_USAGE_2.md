@@ -1,5 +1,10 @@
 *****This Guide Assumes You Have Already Succesfully Installed AutoHeadFix and its Dependancies*****
-1) To start AutoHeadFix use the following command **sudo python3 __main__2.py**
+1) Note: a couple useful aliases were automatically created during hte install: 
+    raspberrypi$ ahfstart: start the program
+    raspberrypi$ ahfstart --temp: start the program using whatever configurations were most recently stored in database
+
+ start AutoHeadFix use the following command **sudo python3 __main__2.py**
+
 
 2) At the prompt, select a AHF task configuration file or create your own. To create your own configration file simply enter 0 and follow the prompts on screen to set various parameters.
 

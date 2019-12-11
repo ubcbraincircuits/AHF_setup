@@ -26,8 +26,7 @@ and serial port > enable**
 8. To verify the install executed properly run the command: sudo -u root -p -e "SHOW DATABASES;"
 You should see a database with the name you just entered. If so congratulations! the install was a success.
 
-9. If you experience any problems with the install it is recommended to run the script and enter '0' at the starting prompt.
-This will clear any cloned repos/folders created durring the installation (after the fact) and is useful if a timeout error or remote host disconnect results in a partial install.
+9. Details on dependancy vs full installation. Dependancy installation downloads only those packages AHF depends on that are NOT available through pip or conda it will not clone the main repository. Everything performed in the dependancy install is also performed in the full install, thus running both is technically redundant. So why is dependancy install included? Simply because it was usefull at time of development to be able to clone certain repositories in isolation. This may come in handy if users encounter import errors after running a full install.
 
 10. After installation you should see a few folders. The main function is located within the folder 
 "AutoHeadFix"

@@ -73,7 +73,7 @@ if [ $userinput -eq 0 ];
 		python3 -m pip install PyMySQL 
 
 		echo "downloading AHF repository lever_config branch"
-		git clone --single-branch --branch lever_config https://github.com/jamieboyd/AutoHeadFix
+		git clone https://github.com/ubcbraincircuits/AutoHeadFix
 		exit
 
         else
@@ -138,7 +138,7 @@ if [ $userinput -eq 0 ];
 		python3 -m pip install PyMySQL 
 													 
 		echo "downloading AHF repository lever_config branch"
-		git clone --single-branch --branch lever_config https://github.com/ubcbraincircuits/AutoHeadFix
+		git clone https://github.com/ubcbraincircuits/AutoHeadFix
 		cd AutoHeadFix
 		_path=$PWD
 		echo $_path

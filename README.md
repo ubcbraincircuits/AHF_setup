@@ -7,11 +7,11 @@ and serial port > enable**
 
 **NOTE: Serial Console must be DISABLED**
 
-1. clone this repository by typing the following into terminal: git clone https://github.com/ZenenHornstein/AHF_setup
+1. clone this repository by typing the following into terminal: git clone https://github.com/ubcbraincircuits/AHF_setup
 
 2. Navigate to the folder called AHF_setup. You should see two files one called AHF_script.sh and the other being this readme.
 
-3. Next we must make the script executable with the command: sudo chmod 777 AHF_script.sh
+3. Next we must make the script executable with the command: sudo chmod 765 AHF_script.sh
 
 4. To begin setup use the following command: sudo ./AHF_script.sh  ****NOTE**** depending on the state of your raspberry pi and speed of internet connection this script can take up to an hour to finish. *ALL FOLDERS ARE CRATED RELATIVE TO THE CURRENT DIRECTORY* This means one should execute the script from the desired directory to house AutoHeadFix.
 

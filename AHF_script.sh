@@ -14,7 +14,7 @@ if [ $userinput -eq 0 ];
                 echo "Dependancy install selected"
 		
 		echo "cloning pulsedThread and building makefile"
-		git clone https://github.com/jamieboyd/pulsedThread.git
+		git clone https://github.com/ubcbraincircuits/PulsedThread.git
 		cd pulsedThread
 		sudo make
 		sudo make install
@@ -24,7 +24,7 @@ if [ $userinput -eq 0 ];
 
 
 		echo "Cloning GPIO_Thread"
-		git clone https://github.com/jamieboyd/GPIO_Thread.git
+		git clone https://github.com/ubcbraincircuits/GPIO_Thread.git
 		cd GPIO_Thread
 		python3 HX711_setup.py install # is this neccesary??
 		python3 SimpleGPIO_setup.py install
@@ -35,7 +35,7 @@ if [ $userinput -eq 0 ];
 
 
 		echo "cloning rfid reader"
-		git clone https://github.com/jamieboyd/RFIDTagReader.git
+		git clone https://github.com/ubcbraincircuits/RFIDTagReader.git
 		cd RFIDTagReader
 		python3 RFIDTagReader_setup.py install
 		cd ..
@@ -63,7 +63,7 @@ if [ $userinput -eq 0 ];
 
 
 		echo "cloning touch detector"
-		git clone https://github.com/Judge24601/TouchDetector.git
+		git clone https://github.com/ubcbraincircuits/TouchDetector.git
 		cd TouchDetector
 		python3 TouchDetector_setup.py install
 		cd ..
@@ -80,7 +80,7 @@ if [ $userinput -eq 0 ];
                 echo "Full installation selected"
 
 		echo "cloning pulsedThread and building makefile"
-		git clone https://github.com/jamieboyd/pulsedThread.git
+		git clone https://github.com/ubcbraincircuits/PulsedThread.git
 		cd pulsedThread
 		sudo make
 		sudo make install
@@ -90,7 +90,7 @@ if [ $userinput -eq 0 ];
 		                                                                                         
 		                                                                                         
 		echo "Cloning GPIO_Thread"
-		git clone https://github.com/jamieboyd/GPIO_Thread.git
+		git clone https://github.com/ubcbraincircuits/GPIO_Thread.git
 		cd GPIO_Thread
 		python3 HX711_setup.py install # is this neccesary??
 		python3 SimpleGPIO_setup.py install
@@ -101,7 +101,7 @@ if [ $userinput -eq 0 ];
 		                                                                                         
 		                                                                                         
 		echo "cloning rfid reader"
-		git clone https://github.com/jamieboyd/RFIDTagReader.git
+		git clone https://github.com/ubcbraincircuits/RFIDTagReader.git
 		cd RFIDTagReader
 		python3 RFIDTagReader_setup.py install
 		cd ..
@@ -129,7 +129,7 @@ if [ $userinput -eq 0 ];
 													 
 													 
 		echo "cloning touch detector"
-		git clone https://github.com/Judge24601/TouchDetector.git
+		git clone https://github.com/ubcbraincircuits/TouchDetector.git
 		cd TouchDetector
 		python3 TouchDetector_setup.py install
 		cd ..

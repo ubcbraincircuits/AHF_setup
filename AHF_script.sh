@@ -15,7 +15,7 @@ if [ $userinput -eq 0 ];
 		
 		echo "cloning pulsedThread and building makefile"
 		git clone https://github.com/ubcbraincircuits/PulsedThread.git
-		cd pulsedThread
+		cd PulsedThread
 		sudo make
 		sudo make install
 		python3 setup_ptGreeter.py install
@@ -81,7 +81,7 @@ if [ $userinput -eq 0 ];
 
 		echo "cloning pulsedThread and building makefile"
 		git clone https://github.com/ubcbraincircuits/PulsedThread.git
-		cd pulsedThread
+		cd PulsedThread
 		sudo make
 		sudo make install
 		python3 setup_ptGreeter.py install

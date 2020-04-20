@@ -1,4 +1,4 @@
-                             
+                          
 
 #!/bin/bash
 # This script should completely set up AutoHeadFixer on a blank Raspberry pi.
@@ -137,8 +137,8 @@ if [ $userinput -eq 0 ];
 		echo "installing pypy and remaining modules (mysql-server, php-mysql, pymysql)"
 		python3 -m pip install PyMySQL 
 													 
-		echo "downloading AHF repository lever_config branch"
-		git clone https://github.com/ubcbraincircuits/AutoHeadFix
+		echo "downloading AHF repository closed-loop branch"
+		git clone https://github.com/ubcbraincircuits/AutoHeadFix -b closed-loop
 		cd AutoHeadFix
 		_path=$PWD
 		echo $_path
@@ -147,7 +147,14 @@ if [ $userinput -eq 0 ];
 		sudo touch .bash_aliases
 		sudo echo "alias ahf='cd $_path'" | sudo tee .bash_aliases
 		sudo echo "alias ahfstart='ahf && sudo python3 __main__2.py'" | sudo tee -a .bash_aliases
-		                
+
+		echo "downloading additional packages"
+		sudo pip3 install opencv-contrib-python==3.4.3.18 -y
+		sudo pip3 install imutils -y
+		sudo pip3 install wiringpi -y
+		sudo pip3 install tables -y
+		sudo pip3 install csv -y
+
 
 		echo "setting up database"
 		sudo apt install mariadb-server -y

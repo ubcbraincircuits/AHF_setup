@@ -138,7 +138,7 @@ if [ $userinput -eq 0 ];
 		python3 -m pip install PyMySQL 
 													 
 		echo "downloading AHF repository closed-loop branch"
-		git clone https://github.com/ubcbraincircuits/AutoHeadFix -b closed-loop
+		git clone https://github.com/ubcbraincircuits/AutoHeadFix
 		cd AutoHeadFix
 		_path=$PWD
 		echo $_path

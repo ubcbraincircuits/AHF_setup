@@ -149,12 +149,14 @@ if [ $userinput -eq 0 ];
 		sudo echo "alias ahfstart='ahf && sudo python3 __main__2.py'" | sudo tee -a .bash_aliases
 
 		echo "downloading additional packages"
-		sudo pip3 install opencv-contrib-python==3.4.3.18 -y
-		sudo pip3 install imutils -y
-		sudo pip3 install wiringpi -y
-		sudo pip3 install tables -y
-		sudo pip3 install csv -y
-
+		sudo apt-get install libhdf5-dev libhdf5-serial-dev libhdf5-100
+		sudo apt-get install libqtgui4 libqtwebkit4 libqt4-test python3-pyqt5 
+		sudo apt-get install libatlas-base-dev
+		sudo apt-get install libjasper-dev
+		sudo pip3 install opencv-contrib-python==3.4.3.18 
+		sudo pip3 install imutils
+		sudo pip3 install wiringpi
+		sudo pip3 install tables 
 
 		echo "setting up database"
 		sudo apt install mariadb-server -y

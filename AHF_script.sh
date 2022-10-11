@@ -72,8 +72,8 @@ if [ $userinput -eq 0 ];
 		sudo apt-get install pypy mysql-server php-mysql -y
 		python3 -m pip install PyMySQL 
 
-		echo "downloading AHF repository lever_config branch"
-		git clone https://github.com/ubcbraincircuits/AutoHeadFix
+		echo "downloading AHF repository master branch"
+		git clone -b master https://github.com/ubcbraincircuits/AutoHeadFix
 		exit
 
         else

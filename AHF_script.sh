@@ -80,8 +80,9 @@ if [ $userinput -eq 0 ];
                 echo "Full installation selected"
 
 		echo "Reinstalling numpy"
-		sudo apt remove python3-numpy
-		pip3 uninstall numpy
+		cd /usr/lib/python3/dist-packages
+		rm numpy*
+		cd
 		pip3 install numpy
 
 		export PATH="$PATH:/home/$USER/.local/bin"

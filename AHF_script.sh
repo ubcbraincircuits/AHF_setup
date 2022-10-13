@@ -79,6 +79,14 @@ if [ $userinput -eq 0 ];
         else
                 echo "Full installation selected"
 
+		echo "Reinstalling numpy"
+		sudo apt remove python3-numpy
+		pip3 uninstall numpy
+		pip3 install numpy
+
+		export PATH="$PATH:/home/$USER/.local/bin"
+
+
 		echo "cloning pulsedThread and building makefile"
 		git clone https://github.com/ubcbraincircuits/PulsedThread.git
 		cd PulsedThread

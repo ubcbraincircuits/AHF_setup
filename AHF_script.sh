@@ -84,7 +84,7 @@ if [ $userinput -eq 0 ];
 		old_dir=$(pwd)
 		cd /usr/lib/python3/dist-packages
 		rm -r numpy*
-		cd $old_var
+		cd $old_dir
 		pip3 install numpy
 
 		export PATH="$PATH:/home/$USER/.local/bin"

@@ -9,7 +9,7 @@ read -p "Select 0 for dependancy install or any key for a full installation" use
 #updates pi, bypassing y/n prompts, clears out unused packages
 sudo apt-get update && sudo apt-get upgrade -y && apt-get autoremove && apt-get autoclean
 
-if [ $userinput = 0 ];
+if [ $userinput -eq 0 ];
         then
                 echo "Dependancy install selected"
 		

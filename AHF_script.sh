@@ -80,10 +80,11 @@ if [ $userinput -eq 0 ];
                 echo "Full installation selected"
 
 		echo "Reinstalling numpy"
+
+		old_dir=$(pwd)
 		cd /usr/lib/python3/dist-packages
 		rm -r numpy*
-		cd
-		cd AHF_setup
+		cd $old_var
 		pip3 install numpy
 
 		export PATH="$PATH:/home/$USER/.local/bin"

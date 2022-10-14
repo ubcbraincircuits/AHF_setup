@@ -81,7 +81,7 @@ if [ $userinput -eq 0 ];
 
 		echo "Reinstalling numpy"
 		cd /usr/lib/python3/dist-packages
-		rm numpy*
+		rm -r numpy*
 		cd
 		pip3 install numpy
 

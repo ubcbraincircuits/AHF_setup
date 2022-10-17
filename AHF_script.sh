@@ -140,10 +140,8 @@ if [ $userinput -eq 0 ];
 		sudo pip3 install adafruit-circuitpython-pca9685
 													 
 		echo "[step 9/$numsteps] cloning touch detector"
-		git clone https://github.com/ubcbraincircuits/TouchDetector.git
-		cd TouchDetector
-		python3 TouchDetector_setup.py install
-		cd ..
+		git clone https://github.com/roark-z/TouchDetector.git
+		pip3 install -e TouchDetector
 													 
 		echo "[step 10/$numsteps] installing pypy and remaining modules (mysql-server, php-mysql, pymysql)"
 		python3 -m pip install PyMySQL 

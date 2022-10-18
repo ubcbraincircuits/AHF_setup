@@ -63,9 +63,9 @@ if [ $userinput -eq 0 ];
 
 
 		echo "cloning touch detector"
-		git clone https://github.com/ubcbraincircuits/TouchDetector.git
+		git clone https://github.com/roark-z/TouchDetector.git
 		cd TouchDetector
-		python3 TouchDetector_setup.py install
+		python3 setup.py install
 		cd ..
 
 		echo "installing pypy and remaining modules (mysql-server, php-mysql, pymysql)"
@@ -129,19 +129,18 @@ if [ $userinput -eq 0 ];
 		echo "[step 5/$numsteps] Installing adafruit bus device"
 		sudo pip3 install adafruit-circuitpython-busdevice
 
-		echo "[step 6/$numsteps]Installing adafruit register"
+		echo "[step 6/$numsteps] Installing adafruit register"
 		sudo pip3 install adafruit-circuitpython-register
 		                                                                                         
 		echo "[step 7/$numsteps] Installing adafruit mpr121"
-		sudo pip3 install adafruit-circuitpython-mpr121
-		                                                                                         
+		sudo pip3 install adafruit-circuitpython-mpr121                                    
 		                                                                                         
 		echo "[step 8/$numsteps] Installing adafruit pca9685"
-		sudo pip3 install adafruit-circuitpython-pca9685
-													 
+		sudo pip3 install adafruit-circuitpython-pca9685	
+
 		echo "[step 9/$numsteps] cloning touch detector"
 		git clone https://github.com/roark-z/TouchDetector.git
-		pip3 install -e TouchDetector
+		pip3 install -e TouchDetector				 
 													 
 		echo "[step 10/$numsteps] installing pypy and remaining modules (mysql-server, php-mysql, pymysql)"
 		python3 -m pip install PyMySQL 

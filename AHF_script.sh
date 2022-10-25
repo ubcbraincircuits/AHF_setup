@@ -79,7 +79,7 @@ if [ $userinput -eq 0 ];
         else
                 echo "Full installation selected"
 
-		numsteps=13
+		numsteps=14
 
 		echo "Reinstalling numpy"
 
@@ -138,14 +138,17 @@ if [ $userinput -eq 0 ];
 		echo "[step 8/$numsteps] Installing adafruit pca9685"
 		sudo pip3 install adafruit-circuitpython-pca9685	
 
-		echo "[step 9/$numsteps] cloning touch detector"
+		echo "[step 9/$numsteps] Installing adafruit motor"
+		sudo pip3 install adafruit-circuitpython-motor
+
+		echo "[step 10/$numsteps] cloning touch detector"
 		git clone https://github.com/roark-z/TouchDetector.git
 		pip3 install -e TouchDetector				 
 													 
-		echo "[step 10/$numsteps] installing pypy and remaining modules (mysql-server, php-mysql, pymysql)"
+		echo "[step 11/$numsteps] installing pypy and remaining modules (mysql-server, php-mysql, pymysql)"
 		python3 -m pip install PyMySQL 
 													 
-		echo "[step 11/$numsteps] downloading AHF repository update branch"
+		echo "[step 12/$numsteps] downloading AHF repository update branch"
 		git clone -b update-os https://github.com/roark-z/AutoHeadFix.git
 		cd AutoHeadFix
 		_path=$PWD
@@ -156,7 +159,7 @@ if [ $userinput -eq 0 ];
 		sudo echo "alias ahf='cd $_path'" | sudo tee .bash_aliases
 		sudo echo "alias ahfstart='ahf && sudo python3 __main__2.py'" | sudo tee -a .bash_aliases
 
-		echo "[step 12/$numsteps] downloading additional packages"
+		echo "[step 13/$numsteps] downloading additional packages"
 		sudo apt-get install libhdf5-dev libhdf5-serial-dev libhdf5-100
 		sudo apt-get install libqtgui4 libqtwebkit4 libqt4-test python3-pyqt5 
 		sudo apt-get install libatlas-base-dev
@@ -166,7 +169,7 @@ if [ $userinput -eq 0 ];
 		sudo pip3 install wiringpi
 		sudo pip3 install tables 
 
-		echo "[step 13/$numsteps] setting up database"
+		echo "[step 14/$numsteps] setting up database"
 		sudo apt install mariadb-server -y
 		sudo apt-get install pypy mysql-server php-mysql -y
 		sudo mysql_secure_installation  #-Y option for more sequre install 

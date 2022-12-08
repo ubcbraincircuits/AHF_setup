@@ -79,7 +79,7 @@ if [ $userinput -eq 0 ];
         else
                 echo "Full installation selected"
 
-		numsteps=14
+		numsteps=15
 
 		echo "Reinstalling numpy"
 
@@ -158,6 +158,7 @@ if [ $userinput -eq 0 ];
 		sudo touch .bash_aliases
 		sudo echo "alias ahf='cd $_path'" | sudo tee .bash_aliases
 		sudo echo "alias ahfstart='ahf && sudo python3 __main__2.py'" | sudo tee -a .bash_aliases
+		cd $old_dir
 
 		echo "[step 13/$numsteps] downloading additional packages"
 		sudo apt-get install libhdf5-dev libhdf5-serial-dev libhdf5-100
@@ -167,9 +168,15 @@ if [ $userinput -eq 0 ];
 		sudo pip3 install opencv-contrib-python==3.4.3.18 
 		sudo pip3 install imutils
 		sudo pip3 install wiringpi
-		sudo pip3 install tables 
+		sudo pip3 install tables
 
-		echo "[step 14/$numsteps] setting up database"
+		echo "[step 14/$numsteps] downloading picamera2 hotfix"
+		git clone https://github.com/roark-z/picamera2.git
+		cd picamera2
+		sudo python3 setup.py install
+		cd ..
+
+		echo "[step 15/$numsteps] setting up database"
 		sudo apt install mariadb-server -y
 		sudo apt-get install pypy mysql-server php-mysql -y
 		sudo mysql_secure_installation  #-Y option for more sequre install 

@@ -149,7 +149,7 @@ if [ $userinput -eq 0 ];
 		python3 -m pip install PyMySQL 
 													 
 		echo "[step 12/$numsteps] downloading AHF repository update branch"
-		git clone -b update-docs https://github.com/roark-z/AutoHeadFix.git
+		git clone https://github.com/ubcbraincircuits/AutoHeadFix.git
 		cd AutoHeadFix
 		_path=$PWD
 		echo $_path

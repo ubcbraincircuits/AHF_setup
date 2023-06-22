@@ -63,23 +63,36 @@ if [ $userinput -eq 0 ];
 
 
 		echo "cloning touch detector"
-		git clone https://github.com/ubcbraincircuits/TouchDetector.git
+		git clone https://github.com/roark-z/TouchDetector.git
 		cd TouchDetector
-		python3 TouchDetector_setup.py install
+		python3 setup.py install
 		cd ..
 
 		echo "installing pypy and remaining modules (mysql-server, php-mysql, pymysql)"
 		sudo apt-get install pypy mysql-server php-mysql -y
 		python3 -m pip install PyMySQL 
 
-		echo "downloading AHF repository lever_config branch"
-		git clone https://github.com/ubcbraincircuits/AutoHeadFix
+		echo "downloading AHF repository master branch"
+		git clone -b master https://github.com/ubcbraincircuits/AutoHeadFix
 		exit
 
         else
                 echo "Full installation selected"
 
-		echo "cloning pulsedThread and building makefile"
+		numsteps=15
+
+		echo "Reinstalling numpy"
+
+		old_dir=$(pwd)
+		cd /usr/lib/python3/dist-packages
+		rm -r numpy*
+		cd $old_dir
+		pip3 install numpy
+
+		export PATH="$PATH:/home/$USER/.local/bin"
+
+
+		echo "[step 1/$numsteps] cloning pulsedThread and building makefile"
 		git clone https://github.com/ubcbraincircuits/PulsedThread.git
 		cd PulsedThread
 		sudo make
@@ -89,7 +102,7 @@ if [ $userinput -eq 0 ];
 		cd ..
 		                                                                                         
 		                                                                                         
-		echo "Cloning GPIO_Thread"
+		echo "[step 2/$numsteps] Cloning GPIO_Thread"
 		git clone https://github.com/ubcbraincircuits/GPIO_Thread.git
 		cd GPIO_Thread
 		python3 HX711_setup.py install # is this neccesary??
@@ -100,45 +113,43 @@ if [ $userinput -eq 0 ];
 		cd ..
 		                                                                                         
 		                                                                                         
-		echo "cloning rfid reader"
+		echo "[step 3/$numsteps] cloning rfid reader"
 		git clone https://github.com/ubcbraincircuits/RFIDTagReader.git
 		cd RFIDTagReader
 		python3 RFIDTagReader_setup.py install
 		cd ..
+
+		echo "[step 4/$numsteps] Installing circuitpython"
+		cd ~
+		sudo pip3 install --upgrade adafruit-python-shell
+		wget https://raw.githubusercontent.com/adafruit/Raspberry-Pi-Installer-Scripts/master/raspi-blinka.py
+		sudo python3 raspi-blinka.py
+		cd $old_dir
+
+		echo "[step 5/$numsteps] Installing adafruit bus device"
+		sudo pip3 install adafruit-circuitpython-busdevice
+
+		echo "[step 6/$numsteps] Installing adafruit register"
+		sudo pip3 install adafruit-circuitpython-register
 		                                                                                         
+		echo "[step 7/$numsteps] Installing adafruit mpr121"
+		sudo pip3 install adafruit-circuitpython-mpr121                                    
 		                                                                                         
-		echo "cloning adafruit python mpr121"
-		git clone https://github.com/adafruit/Adafruit_Python_MPR121.git
-		cd Adafruit_Python_MPR121
-		sudo python3 setup.py install
-		cd .. 
-		                                                                                         
-		                                                                                         
-		echo "Cloning pca9685"
-		git clone https://github.com/adafruit/Adafruit_Python_PCA9685.git
-		cd Adafruit_Python_PCA9685
-		sudo python3 setup.py install
-		cd ..
+		echo "[step 8/$numsteps] Installing adafruit pca9685"
+		sudo pip3 install adafruit-circuitpython-pca9685	
+
+		echo "[step 9/$numsteps] Installing adafruit motor"
+		sudo pip3 install adafruit-circuitpython-motor
+
+		echo "[step 10/$numsteps] cloning touch detector"
+		git clone https://github.com/roark-z/TouchDetector.git
+		pip3 install -e TouchDetector				 
 													 
-													 
-		echo "cloning adafruit GPIO"
-		git clone https://github.com/adafruit/Adafruit_Python_GPIO.git 
-		cd Adafruit_Python_GPIO
-		sudo python3 setup.py install
-		cd ..
-													 
-													 
-		echo "cloning touch detector"
-		git clone https://github.com/ubcbraincircuits/TouchDetector.git
-		cd TouchDetector
-		python3 TouchDetector_setup.py install
-		cd ..
-													 
-		echo "installing pypy and remaining modules (mysql-server, php-mysql, pymysql)"
+		echo "[step 11/$numsteps] installing pypy and remaining modules (mysql-server, php-mysql, pymysql)"
 		python3 -m pip install PyMySQL 
 													 
-		echo "downloading AHF repository closed-loop branch"
-		git clone -b closed_loop https://github.com/ubcbraincircuits/AutoHeadFix 
+		echo "[step 12/$numsteps] downloading AHF repository update branch"
+		git clone https://github.com/ubcbraincircuits/AutoHeadFix.git
 		cd AutoHeadFix
 		_path=$PWD
 		echo $_path
@@ -147,8 +158,9 @@ if [ $userinput -eq 0 ];
 		sudo touch .bash_aliases
 		sudo echo "alias ahf='cd $_path'" | sudo tee .bash_aliases
 		sudo echo "alias ahfstart='ahf && sudo python3 __main__2.py'" | sudo tee -a .bash_aliases
+		cd $old_dir
 
-		echo "downloading additional packages"
+		echo "[step 13/$numsteps] downloading additional packages"
 		sudo apt-get install libhdf5-dev libhdf5-serial-dev libhdf5-100
 		sudo apt-get install libqtgui4 libqtwebkit4 libqt4-test python3-pyqt5 
 		sudo apt-get install libatlas-base-dev
@@ -156,9 +168,15 @@ if [ $userinput -eq 0 ];
 		sudo pip3 install opencv-contrib-python==3.4.3.18 
 		sudo pip3 install imutils
 		sudo pip3 install wiringpi
-		sudo pip3 install tables 
+		sudo pip3 install tables
 
-		echo "setting up database"
+		echo "[step 14/$numsteps] downloading picamera2 hotfix"
+		git clone https://github.com/roark-z/picamera2.git
+		cd picamera2
+		sudo python3 setup.py install
+		cd ..
+
+		echo "[step 15/$numsteps] setting up database"
 		sudo apt install mariadb-server -y
 		sudo apt-get install pypy mysql-server php-mysql -y
 		sudo mysql_secure_installation  #-Y option for more sequre install 
